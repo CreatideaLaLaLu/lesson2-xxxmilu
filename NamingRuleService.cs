@@ -82,6 +82,10 @@ namespace Miaoli.Port.Video.Service
             // good value = !string.IsNullOrEmpty(value) ? NewString.Replace("A", ",").Replace("B", "_").Replace("C", " ") : value;
             if (value != null | value != "") value = NewString.Replace("A", ",").Replace("B", "_").Replace("C", " ");
 
+            // 20180330 主任說要用stringbuilder
+            value = !string.IsNullOrEmpty(value)
+                ? new StringBuilder(NewString.Replace("A", ",").Replace("B", "_").Replace("C", " ")).ToString()
+                : value;
         }
 
     }
